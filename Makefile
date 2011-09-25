@@ -1,6 +1,9 @@
 DIRS = lib sockets advio call calld daemons datafiles db environ exercises \
 	file ipc ipp lock mycat open opend opend.fe open.fe proc pty \
-	sess signals std stdio streams termios threadctl threads
+	sess signals std stdio streams termios threadctl threads $(dir $(wildcard local*))
+
+export WKDIR   = $(CURDIR)
+export CFLAGS += -I$(WKDIR)/include
 
 all:
 	$(MAKE) `./systype.sh`
