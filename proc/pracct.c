@@ -13,6 +13,13 @@
 #define AXSIG 0
 #endif
 
+#ifdef HAVE_ACCTV1
+typedef struct acctv1 acct_t;
+#else
+typedef struct acct acct_t;
+#endif
+
+
 static unsigned long
 compt2ulong(comp_t comptime)	/* convert comp_t to unsigned long */
 {
@@ -28,7 +35,7 @@ compt2ulong(comp_t comptime)	/* convert comp_t to unsigned long */
 int
 main(int argc, char *argv[])
 {
-	struct acct		acdata;
+	acct_t		acdata;
 	FILE			*fp;
 
 	if (argc != 2)

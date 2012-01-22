@@ -7,7 +7,7 @@ COMPILE.c  = $(CC) $(CFLAGS) $(CPPFLAGS) -c
 LINK.c     = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDDIR) $(LDFLAGS)
 LDDIR      = -L../lib
 LDLIBS     = ../lib/libapue.a $(EXTRALIBS)
-CFLAGS    += -DBSD -ansi -Wall $(EXTRA)
+CFLAGS    += -DHAVE_ACCTV1 -DBSD -ansi -Wall $(EXTRA)
 
 # Our library that almost every program needs.
 LIB        = ../libapue.a
