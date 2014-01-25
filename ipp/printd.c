@@ -746,7 +746,7 @@ printer_thread(void *arg)
 		hp = (struct ipp_hdr *)icp;
 		hp->major_version = 1;
 		hp->minor_version = 1;
-		hp->operation = htons(OP_PRINT_JOB);
+		hp->u.op = htons(OP_PRINT_JOB);
 		hp->request_id = htonl(jp->jobid);
 		icp += offsetof(struct ipp_hdr, attr_group);
 		*icp++ = TAG_OPERATION_ATTR;
@@ -974,7 +974,7 @@ printer_status(int sockfd, struct job *jp)
 			cp = &bp[i];
 
 			hp = (struct ipp_hdr *)cp;
-			i = ntohs(hp->status);
+			i = ntohs(hp->u.st);
 			jobid = ntohl(hp->request_id);
 			if (jobid != jp->jobid) {
 				/*
