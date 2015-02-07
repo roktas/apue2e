@@ -17,7 +17,7 @@ main(int argc, char *argv[])
 	printf("no symbol for ARG_MAX\n");
 #endif
 #ifdef _SC_ARG_MAX
-	pr_sysconf("ARG_MAX =", _SC_ARG_MAX);
+	pr_sysconf((char *)"ARG_MAX =", _SC_ARG_MAX);
 #else
 	printf("no symbol for _SC_ARG_MAX\n");
 #endif
@@ -30,7 +30,7 @@ main(int argc, char *argv[])
 	printf("no symbol for MAX_CANON\n");
 #endif
 #ifdef _PC_MAX_CANON
-	pr_pathconf("MAX_CANON =", argv[1], _PC_MAX_CANON);
+	pr_pathconf((char *)"MAX_CANON =", argv[1], _PC_MAX_CANON);
 #else
 	printf("no symbol for _PC_MAX_CANON\n");
 #endif
